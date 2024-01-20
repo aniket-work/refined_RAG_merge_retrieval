@@ -1,0 +1,4 @@
+chromadb
+langchain
+transformers
+pypdf2

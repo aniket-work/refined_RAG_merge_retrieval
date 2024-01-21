@@ -9,10 +9,10 @@ class VectorSpace:
     def create_vector_space(self):
         return Chroma.from_documents(
             self.texts,
-            self.embedding_model.get_model(),
+            self.embedding_model,
             collection_metadata={"hnsw:space": "cosine"},
             persist_directory=self.persist_directory
         )
 
     def load_vector_space(self):
-        return Chroma(persist_directory=self.persist_directory, embedding_function=self.embedding_model.get_model())
+        return Chroma(persist_directory=self.persist_directory, embedding_function=self.embedding_model)

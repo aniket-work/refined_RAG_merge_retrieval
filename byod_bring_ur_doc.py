@@ -47,7 +47,7 @@ def load_vector_spaces(pdf_files: list, model) -> list:
     for file_path in pdf_files:
         model = model
         vector_space = VectorSpace([], model, f"vector_space/{os.path.basename(file_path)}_chroma_cosine")
-        vector_spaces.append(vector_space.load_vector_space())
+        vector_spaces.append(vector_space.load_chroma_vector_space())
 
     return vector_spaces
 

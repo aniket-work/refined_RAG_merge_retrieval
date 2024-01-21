@@ -1,0 +1,5 @@
+{
+    "embeddingModel": "BAAI/bge-large-en",
+    "defaultModel": "BAAI/bge-large-en"
+}
+  

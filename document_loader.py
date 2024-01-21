@@ -4,6 +4,6 @@ class DocumentLoader:
     def __init__(self, file_path):
         self.file_path = file_path
 
-    def load_documents(self):
+    def load_pdf_documents(self):
         loader = PyPDFLoader(self.file_path)
         return loader.load()

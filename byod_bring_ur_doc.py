@@ -2,6 +2,7 @@ import json
 from vector_space import VectorSpace
 from merger_retriever import MergerRetrieverHandler
 from embedding_model import EmbeddingModelFactory
+from rerank_algorithim_store import rerank_documents
 import os
 
 def load_configuration(config_path: str) -> dict:
@@ -102,12 +103,18 @@ def main():
     queries = load_queries(queries_path)
 
     for query in queries:
-        print(f"\n------------------------------------")
+        print(f"\n-------------- MERGE RETRIEVAL ----------------------")
         print(f"\nQuery: {query}")
         print(f"\n------------------------------------")
-        for chunks in lotr.get_relevant_documents(query):
-            print(chunks.page_content)
+        print(lotr.get_relevant_documents(query))
+
+
+    for query in queries:
+        print(f"\n--------------- RE RANK ---------------------")
+        print(f"\nQuery: {query}")
         print(f"\n------------------------------------")
+        print(rerank_documents(lotr.get_relevant_documents(query)))
+
 
 if __name__ == "__main__":
     main()
